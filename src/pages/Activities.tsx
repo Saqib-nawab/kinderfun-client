@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activities = () => {
+const Activities: React.FC = () => {
     return <h1>Educational Activities Page</h1>;
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Rhymes = () => {
+const Rhymes: React.FC = () => {
     return <h1>Rhymes & Animation Page</h1>;
 };
 

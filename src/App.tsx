@@ -9,7 +9,7 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -24,6 +24,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
