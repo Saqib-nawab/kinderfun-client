@@ -1,6 +1,6 @@
 import React from "react";
 
-const Subscription = () => {
+const Subscription: React.FC = () => {
     return <h1>Subscription & Email Sign-up Page</h1>;
 };
 

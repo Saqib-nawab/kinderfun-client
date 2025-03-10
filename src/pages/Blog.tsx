@@ -1,6 +1,6 @@
 import React from "react";
 
-const Blog = () => {
+const Blog: React.FC = () => {
     return <h1>Blog Section</h1>;
 };
 

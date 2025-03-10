@@ -1,6 +1,6 @@
 import React from "react";
 
-const Privacy = () => {
+const Privacy: React.FC = () => {
     return <h1>Parental Control & Privacy Compliance Page</h1>;
 };
 
