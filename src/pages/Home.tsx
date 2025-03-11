@@ -7,9 +7,6 @@ const Home: React.FC = () => {
       <h1>
         Welcome to Kinderfun!
       </h1>
-      <p className="">
-        Engaging visuals with featured videos and interactive elements.
-      </p>
     </div>
   );
 };
