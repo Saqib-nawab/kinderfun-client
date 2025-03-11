@@ -14,37 +14,37 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Topbar Section */}
-      <div className="w-full bg-gray-dark text-text-light text-sm py-2">
-       <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
-        {/* Left Side: Search Input */}
-        <div className="flex items-center gap-2">
-          <FontAwesomeIcon icon={faSearch} className="text-primary" /> {/* Blue Search Icon */}
-          <input
-            type="text"
-            placeholder="Search Keyword"
-            className="bg-transparent border-b border-text-light text-text-light placeholder-text-light focus:outline-none"
-          />
-        </div>
+      <div className="w-full bg-gray-dark text-white text-sm py-2">
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
+          {/* Left Side: Search Input */}
+          <div className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faSearch} className="text-primary" /> {/* Blue Search Icon */}
+            <input
+              type="text"
+              placeholder="Search Keyword"
+              className="bg-transparent border-b border-white text-white placeholder-white focus:outline-none"
+            />
+          </div>
 
-        {/* Right Side: Contact Info */}
-        <div className="flex items-center gap-6 ml-auto">
-          <Link to="mailto:tsn@dummyemail.com" className="flex items-center gap-2 hover:text-gray-light transition">
-            <FontAwesomeIcon icon={faEnvelope} />
-            <span>Email: tsn@dummyemail.com</span>
-          </Link>
-          <Link to="tel:+923106241365" className="flex items-center gap-2 hover:text-gray-light transition">
-            <FontAwesomeIcon icon={faPhone} />
-            <span>Phone: +92 310 6241365</span>
-          </Link>
+          {/* Right Side: Contact Info */}
+          <div className="flex items-center gap-6 ml-auto">
+            <Link to="mailto:tsn@dummyemail.com" className="flex items-center gap-2 hover:text-gray-light transition">
+              <FontAwesomeIcon icon={faEnvelope} />
+              <span>Email: tsn@dummyemail.com</span>
+            </Link>
+            <Link to="tel:+923106241365" className="flex items-center gap-2 hover:text-gray-light transition">
+              <FontAwesomeIcon icon={faPhone} />
+              <span>Phone: +92 310 6241365</span>
+            </Link>
+          </div>
         </div>
-       </div>
       </div>
 
       {/* Navbar Section */}
       <nav className="bg-primary shadow-md fixed w-full top-8 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center text-light text-xl font-bold">
+          <Link to="/" className="flex items-center text-white text-xl font-bold">
             <img src={logo} alt="Logo" className="h-10 w-auto mr-3" />
             <span className="hidden md:block text-white text-lg">Kinder Fun</span>
           </Link>
