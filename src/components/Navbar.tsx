@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Topbar Section */}
-      <div className="w-full bg-gray-dark text-white text-sm py-2">
+      <div className="w-full bg-gray-dark text-sm py-2">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
           {/* Left Side: Search Input */}
           <div className="flex items-center gap-2">
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
             <input
               type="text"
               placeholder="Search Keyword"
-              className="bg-transparent border-b border-white text-white placeholder-white focus:outline-none"
+              className="bg-transparent border-b border-primary placeholder-primary focus:outline-none"
             />
           </div>
 
