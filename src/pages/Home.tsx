@@ -3,6 +3,10 @@ import React from 'react';
 import Videos from '../components/Videos';
 import Herosection from '../components/Herosection';
 import AboutSection from '../components/AboutSection';
+import EnrollSection from '../components/EnrollSection';
+import InfoSection from '../components/InfoSection';
+import TestimonialSection from '../components/TestimonialSection';
+import NewsletterSection from '../components/NewsletterSection';
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +14,10 @@ const Home: React.FC = () => {
       <Herosection />
       <Videos />
       <AboutSection />
+      <EnrollSection />
+      <InfoSection  />
+      <TestimonialSection />
+      <NewsletterSection />
     </div>
   );
 };
