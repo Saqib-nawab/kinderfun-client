@@ -4,81 +4,132 @@ import React, { useState, useEffect } from 'react';
 interface VideoItem {
   id: {
     videoId?: string;
-    channelId?: string;
   };
   snippet: {
     title: string;
     description: string;
     thumbnails: {
-      default: { url: string };
       medium: { url: string };
-      high: { url: string };
     };
   };
 }
+
+const categories = [
+  "Nursery Rhymes",
+  "Educational Songs",
+  "Storytime"
+];
 
 const Rhymes: React.FC = () => {
   const [videos, setVideos] = useState<VideoItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<string>(categories[0]);
+  const [nextPageToken, setNextPageToken] = useState<string | null>(null);
 
-const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
-const CHANNEL_ID = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
+  const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+  const CHANNEL_ID = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch videos");
-        }
-        const data = await response.json();
-        console.log("videos data",data);
-        setVideos(data.items);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An unknown error occurred");
-        }
-      } finally {
-        setLoading(false);
+  const fetchVideos = async (isLoadMore = false) => {
+    setLoading(true);
+    try {
+      const baseUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&q=${encodeURIComponent(currentCategory)}`;
+      const url = isLoadMore && nextPageToken ? `${baseUrl}&pageToken=${nextPageToken}` : baseUrl;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch videos");
       }
-    };
+      const data = await response.json();
+      // If not loading more, replace; otherwise append the new items.
+      setVideos((prevVideos) => isLoadMore ? [...prevVideos, ...data.items] : data.items);
+      setNextPageToken(data.nextPageToken || null);
+      setError(null);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An unknown error occurred");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  // Fetch videos when the component mounts or currentCategory changes.
+  useEffect(() => {
+    // Reset videos and nextPageToken when category changes.
+    setVideos([]);
+    setNextPageToken(null);
     fetchVideos();
-  }, [API_KEY, CHANNEL_ID]);
+  }, [currentCategory]);
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Rhymes & Animation</h1>
-      <p className="mb-6">
-        Categorized video content including Nursery Rhymes, Educational Songs, and Storytime.
-      </p>
-
-      {loading && <p>Loading videos...</p>}
-      {error && <p>Error: {error}</p>}
-      {!loading && !error && (
-        <ul className="space-y-4">
-          {videos.map((video) => {
-            // Use video.id.videoId if available, else fallback to a different unique key
-            const videoId = video.id.videoId || video.id.channelId || Math.random().toString();
-            return (
-              <li key={videoId} className="border p-4 rounded shadow">
-                <h2 className="text-xl font-semibold">{video.snippet.title}</h2>
-                <p className="text-sm text-gray-600">{video.snippet.description}</p>
-                <img
-                  src={video.snippet.thumbnails.medium.url}
-                  alt={video.snippet.title}
-                  className="mt-2"
-                />
+      <h1 className="text-4xl font-bold text-primary mb-4">Rhymes & Animation</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* Sidebar with Categories */}
+        <aside className="lg:col-span-1">
+          <ul className="space-y-4">
+            {categories.map((cat) => (
+              <li key={cat}>
+                <button
+                  onClick={() => setCurrentCategory(cat)}
+                  className={`w-full text-left px-4 py-2 rounded shadow transition ${
+                    currentCategory === cat ? "bg-secondary text-white" : "bg-white text-text-white hover:bg-secondary"
+                  }`}
+                >
+                  {cat}
+                </button>
               </li>
-            );
-          })}
-        </ul>
-      )}
+            ))}
+          </ul>
+        </aside>
+
+        {/* Video Grid */}
+        <section className="lg:col-span-3">
+          {loading && <p>Loading videos...</p>}
+          {error && <p>Error: {error}</p>}
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {videos.map((video) => {
+              const videoId = video.id.videoId;
+              if (!videoId) return null;
+              return (
+                <div key={videoId} className="bg-white rounded-lg shadow overflow-hidden">
+                  {/* 16:9 iframe container */}
+                  <div className="relative pb-[56.25%]">
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={video.snippet.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div className="p-4">
+                    <h2 className="text-xl font-semibold text-primary">{video.snippet.title}</h2>
+                    <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                      {video.snippet.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Load More Button */}
+          {nextPageToken && !loading && (
+            <div className="mt-8 text-center">
+              <button
+                onClick={() => fetchVideos(true)}
+                className="px-6 py-2 bg-secondary text-white font-semibold rounded-md hover:bg-primary transition"
+              >
+                Load More
+              </button>
+            </div>
+          )}
+        </section>
+      </div>
     </div>
   );
 };
