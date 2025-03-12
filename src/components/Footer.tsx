@@ -21,7 +21,7 @@ import image3 from "../assets/gal-2-3-2.jpg";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-screen bg-primary text-white py-10">
+    <footer className="w-screen bg-primary text-white py-10 ml-0">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

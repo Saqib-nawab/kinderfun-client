@@ -1,3 +1,4 @@
+// src/components/Navbar.tsx
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -14,7 +15,7 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Topbar Section */}
-      <div className="w-full bg-gray-dark text-sm py-2">
+      <div className="w-full bg-gray-dark text-sm py-2 left-0">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
           {/* Left Side: Search Input */}
           <div className="flex items-center gap-2">
@@ -41,7 +42,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Navbar Section */}
-      <nav className="bg-primary shadow-md fixed w-full top-8 z-50">
+      <nav className="bg-primary shadow-md w-full top-8 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center text-white text-xl font-bold">
@@ -54,8 +55,8 @@ const Navbar: React.FC = () => {
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
 
-          {/* Navigation Links */}
-          <ul className={`lg:flex hidden gap-6`}>
+          {/* Navigation Links for larger screens */}
+          <ul className="lg:flex hidden gap-6">
             {[
               { name: "Home", path: "/" },
               { name: "Rhymes & Animation", path: "/rhymes" },
@@ -68,8 +69,8 @@ const Navbar: React.FC = () => {
                   to={link.path}
                   className={`text-white text-lg px-3 py-2 rounded-md transition ${
                     location.pathname === link.path
-                      ? "bg-secondary text-white" // Active state: Orange background
-                      : "hover:bg-gray-light hover:text-primary" // Hover effect
+                      ? "bg-secondary text-white"
+                      : "hover:bg-gray-light hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -96,7 +97,7 @@ const Navbar: React.FC = () => {
                     className={`block text-dark text-lg px-4 py-2 rounded-md transition ${
                       location.pathname === link.path ? "bg-secondary text-white" : "hover:bg-gray-light hover:text-primary"
                     }`}
-                    onClick={() => setIsOpen(false)} // Close menu on click
+                    onClick={() => setIsOpen(false)}
                   >
                     {link.name}
                   </Link>
