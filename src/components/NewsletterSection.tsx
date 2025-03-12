@@ -6,12 +6,12 @@ const NewsletterSection: React.FC = () => {
   return (
     <section className="bg-background text-text-dark py-12 px-4">
       <div className="max-w-3xl mx-auto text-center">
-        {/* Small Icon */}
+        {/* Icon */}
         <div className="mb-2">
           <FontAwesomeIcon icon={faBell} className="text-secondary text-4xl" />
         </div>
 
-        {/* Heading */}
+        {/* Heading & Subheading */}
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
           Sign up for our newsletter
         </h2>
@@ -19,26 +19,43 @@ const NewsletterSection: React.FC = () => {
           Keep up to date with the latest news and offers
         </p>
 
-        {/* Input + Button (No real logic yet) */}
-        <form className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* Mailchimp Form */}
+        <form
+          action="https://gmail.us11.list-manage.com/subscribe/post?u=a999554dca1f40559a9cbd859&id=c3e96c417a&f_id=00a2a3e0f0"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 relative"
+        >
           <input
             type="email"
-            placeholder="Email Your Address..."
+            name="EMAIL"
+            id="mce-EMAIL"
+            placeholder="Your Email Address..."
+            required
             className="w-full sm:w-auto flex-1 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
           />
-          <button
+
+          <input
             type="submit"
-            className="px-6 py-2 bg-secondary text-white font-semibold rounded-md hover:bg-primary transition"
-          >
-            Subscribe
-          </button>
+            name="subscribe"
+            id="mc-embedded-subscribe"
+            value="Subscribe"
+            className="px-6 py-2 bg-secondary text-white font-semibold rounded-md hover:bg-primary transition cursor-pointer"
+          />
+
+          {/* Hidden anti-spam field */}
+          <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+            <input type="text" name="b_a999554dca1f40559a9cbd859_c3e96c417a" tabIndex={-1} value="" readOnly />
+          </div>
         </form>
       </div>
 
       {/* Illustration */}
       <div className="mt-8 flex justify-center">
         <img
-          src="https://dummyimage.com/600x200/eee/000" 
+          src="https://dummyimage.com/600x200/eee/000"
           alt="Kids illustration"
           className="w-full max-w-2xl"
         />
