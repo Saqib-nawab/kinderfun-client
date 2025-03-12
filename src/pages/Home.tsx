@@ -1,12 +1,13 @@
 // src/pages/Home.tsx
 import React from 'react';
+import Videos from '../components/Videos';
+import Herosection from '../components/Herosection';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <h1>
-        Welcome to Kinderfun!
-      </h1>
+    <div className="bg-background text-text-dark min-h-screen mx-auto w-4/5 p-4">
+      <Herosection />
+      <Videos />
     </div>
   );
 };
