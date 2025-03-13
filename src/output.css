@@ -194,3 +194,36 @@
     background-image: linear-gradient(var(--tw-gradient-position), var(--primary), var(--secondary));
   }
 }
+
+/* Additional Variants for Hover and Focus */
+@layer utilities {
+  .bg-primary:hover,
+  .bg-primary:focus {
+    background-color: var(--primary);
+  }
+
+  .bg-secondary:hover,
+  .bg-secondary:focus {
+    background-color: var(--secondary);
+  }
+
+  .bg-accent:hover,
+  .bg-accent:focus {
+    background-color: var(--accent);
+  }
+
+  .text-primary:hover,
+  .text-primary:focus {
+    color: var(--primary);
+  }
+
+  .text-secondary:hover,
+  .text-secondary:focus {
+    color: var(--secondary);
+  }
+
+  .text-accent:hover,
+  .text-accent:focus {
+    color: var(--accent);
+  }
+}
