@@ -8,6 +8,7 @@ import Rhymes from './pages/Rhymes';
 import Activities from './pages/Activities';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import 'regenerator-runtime/runtime';
 
 const App: React.FC = () => {
   return (
