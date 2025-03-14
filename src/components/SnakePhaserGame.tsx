@@ -220,7 +220,6 @@ const SnakePhaserGame: React.FC = () => {
 
   return (
     <div id="phaser-snake" ref={gameContainerRef}>
-      <p>Loading snake game...</p>
     </div>
   );
 };
