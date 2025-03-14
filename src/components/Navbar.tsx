@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faSearch } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.jpg";
 
 const Navbar: React.FC = () => {
@@ -14,33 +12,6 @@ const Navbar: React.FC = () => {
 
   return (
     <div>
-      {/* Topbar Section */}
-      <div className="w-full bg-gray-dark text-sm py-2 left-0">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4">
-          {/* Left Side: Search Input */}
-          <div className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faSearch} className="text-primary" /> {/* Blue Search Icon */}
-            <input
-              type="text"
-              placeholder="Search Keyword"
-              className="bg-transparent border-b border-primary placeholder-primary focus:outline-none"
-            />
-          </div>
-
-          {/* Right Side: Contact Info */}
-          <div className="flex items-center gap-6 ml-auto">
-            <Link to="mailto:tsn@dummyemail.com" className="flex items-center gap-2 hover:text-gray-light transition">
-              <FontAwesomeIcon icon={faEnvelope} />
-              <span>Email: tsn@dummyemail.com</span>
-            </Link>
-            <Link to="tel:+923106241365" className="flex items-center gap-2 hover:text-gray-light transition">
-              <FontAwesomeIcon icon={faPhone} />
-              <span>Phone: +92 310 6241365</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Navbar Section */}
       <nav className="bg-primary shadow-md w-full top-8 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
