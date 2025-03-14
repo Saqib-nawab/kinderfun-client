@@ -6,9 +6,10 @@ const GermsPhaserGame: React.FC = () => {
 
   useEffect(() => {
     // Dynamically load the compiled main.js script for your Phaser game.
-    // Make sure your build process (or public folder) exposes the compiled version of src/phaser/avoidthegerms/main.js.
+    // Make sure the compiled output is available at the specified path.
     const script = document.createElement('script');
-    script.src = '../phaser/avoidthegerms/main.ts'; // Adjust this path as needed.
+    // Update this path to point to the compiled Phaser game script (usually a .js file, not .ts).
+    script.src = '/phaser/avoidthegerms/main.js'; 
     script.async = true;
     const gameContainer = gameContainerRef.current;
     if (gameContainer) {
@@ -21,7 +22,11 @@ const GermsPhaserGame: React.FC = () => {
     };
   }, []);
 
-  return <div id="phaser-example" ref={gameContainerRef} />;
+  return (
+    <div id="phaser-example" ref={gameContainerRef}>
+      <p>Game is loading...</p>
+    </div>
+  );
 };
 
 export default GermsPhaserGame;

@@ -9,7 +9,7 @@ const config: Phaser.Types.Core.GameConfig = {
     width: 800,
     height: 600,
     backgroundColor: '#000000',
-    parent: 'phaser-example', // Ensure your HTML contains an element with this id
+    parent: 'phaser-example', // Ensure HTML contains an element with this id
     scene: [Boot, Preloader, MainMenu, MainGame],
     physics: {
         default: 'arcade',
