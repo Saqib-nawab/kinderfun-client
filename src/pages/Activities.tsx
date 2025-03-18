@@ -1,21 +1,21 @@
 import React, { useState, JSX } from "react";
-import PuzzlePhaserGame from "../components/puzzels/PuzzlePhaser";
 import SnakePhaserGame from "../components/games/SnakePhaserGame";
 import FlappyBirdPhaserGame from "../components/games/FlappyBirdPhaserGame";
 import RunPhaserGame from "../components/games/RunPhaserGame";
 import PixelWarGame from "../components/games/PixelWar";
 import BoxJumpGame from "../components/games/BoxJumpGame";
 import DragAndMatch from "../components/puzzels/DragAndMatchPuzzel";
+import Puzzle2048 from "../components/puzzels/Puzzle2048";
 
 type Category = "games" | "puzzles" | "quizzes" | "creativity" | null;
 type GameType =
-  | "puzzle"
   | "snake"
   | "flappy"
   | "run"
   | "pixelwar"
   | "boxjump"
   | "dragnmatch"
+  | "Puzzle2048"
   | null;
 
 const Activities: React.FC = () => {
@@ -63,8 +63,8 @@ const Activities: React.FC = () => {
     ];
 
     const puzzleItems = [
-      { name: "Puzzle Game", game: "puzzle" },
       { name: "Drag and Match", game: "dragnmatch" },
+      { name: "Puzzle 2048", game: "Puzzle2048" },
     ];
 
     if (selectedCategory === "games") {
@@ -77,7 +77,6 @@ const Activities: React.FC = () => {
               onClick={() => setSelectedGame(game as GameType)}
             >
               <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">Fun & challenging gameplay</p>
             </div>
           ))}
         </div>
@@ -92,7 +91,6 @@ const Activities: React.FC = () => {
               onClick={() => setSelectedGame(game as GameType)}
             >
               <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">Solve fun puzzles</p>
             </div>
           ))}
         </div>
@@ -130,8 +128,6 @@ const Activities: React.FC = () => {
   // Step 3: Render the selected activity/game
   const renderGame = () => {
     switch (selectedGame) {
-      case "puzzle":
-        return <PuzzlePhaserGame />;
       case "snake":
         return <SnakePhaserGame />;
       case "flappy":
@@ -144,6 +140,8 @@ const Activities: React.FC = () => {
         return <BoxJumpGame />;
       case "dragnmatch":
         return <DragAndMatch />;
+      case "Puzzle2048":
+        return <Puzzle2048 />;
       default:
         return null;
     }

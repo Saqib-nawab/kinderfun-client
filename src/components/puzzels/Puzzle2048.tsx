@@ -1,11 +1,11 @@
 import React from "react";
 
-const DragAndMatch: React.FC = () => {
+const Puzzle2048: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
       {/* Game Title */}
       <h1 className="text-3xl font-bold text-[var(--primary)] mb-2">
-        Drag & Match - Puzzle Challenge!
+        2048 - Merge & Win!
       </h1>
 
       {/* Game Description */}
@@ -14,9 +14,10 @@ const DragAndMatch: React.FC = () => {
           About the Game:
         </h2>
         <p className="text-md text-[var(--text-dark)] mt-2">
-          Drag and Match is a **fast-paced puzzle game** where you match
-          colorful tiles by dragging them into position. Align the right colors
-          and clear the board before the time runs out!
+          **2048** is a **strategic number puzzle game** where players slide
+          numbered tiles on a grid to **combine matching values** and reach the
+          ultimate **2048 tile**! Plan your moves carefully to avoid getting
+          stuck!
         </p>
       </div>
 
@@ -26,22 +27,26 @@ const DragAndMatch: React.FC = () => {
           How to Play:
         </h2>
         <ul className="text-md text-[var(--text-dark)] list-disc list-inside mt-2">
-          <li>Click and **drag tiles** to swap their positions.</li>
           <li>
-            Match **three or more** tiles of the same color to clear them.
+            Use <strong>WASD</strong> or <strong>Arrow Keys</strong> to slide
+            tiles.
           </li>
-          <li>The **faster** you match, the **higher your score**!</li>
-          <li>Plan ahead and create **combo matches** for extra points!</li>
+          <li>Tiles with the same number **merge** when they collide.</li>
+          <li>Keep merging tiles to reach **2048**!</li>
+          <li>Avoid **filling the board** without possible moves.</li>
+          <li>
+            Plan your moves to set up **chain reactions** for high scores!
+          </li>
         </ul>
       </div>
 
       {/* Game Frame - Fixed Size, No Scrollbars, Centered */}
       <div className="mt-6 flex justify-center items-center">
         <iframe
-          src="https://jojoee.github.io/phaser-examples/games/10000000/"
-          title="Drag and Match"
-          width="750"
-          height="750"
+          src="https://jojoee.github.io/phaser-examples/games/2048/"
+          title="2048 Game"
+          width="400"
+          height="400"
           className="border-none rounded-lg shadow-lg"
         />
       </div>
@@ -49,4 +54,4 @@ const DragAndMatch: React.FC = () => {
   );
 };
 
-export default DragAndMatch;
+export default Puzzle2048;
