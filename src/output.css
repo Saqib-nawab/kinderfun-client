@@ -1,60 +1,37 @@
 /* Theme Variables */
 @layer theme {
+}
 
-  :root,
-  :host {
+/* Base Styles */
+@layer base {
+  :root {
     --font-sans: "Fredoka One", "Comic Sans MS", cursive, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
 
+    /* Colors from Logo */
     --primary: #1A1A80;
+    /* Dark Blue */
     --secondary: #FF5A24;
+    /* Bright Orange */
     --accent: #FFB534;
+    /* Yellowish Accent */
+
+    /* Background & Text */
     --background: #F8F9FA;
     --text-dark: #1B1B1B;
     --text-white: #FFFFFF;
-    --text-light: #FFFFFF;
-    --light-blue: #E3F2FD;
-    --light-orange: #FFDAB9;
     --gray-light: #E0E0E0;
     --gray-dark: #757575;
 
-    --spacing: 0.25rem;
-    --container-md: 28rem;
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
+    /* Special Effects */
+    --light-blue: #E3F2FD;
+    --light-orange: #FFDAB9;
 
+    /* Shadows */
     --box-shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
     --box-shadow-intense: 0 8px 12px rgba(0, 0, 0, 0.15);
-  }
-}
-
-/* Base Styles */
-@layer base {
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0 solid;
-  }
-
-  html,
-  :host {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    font-family: var(--font-sans);
-    font-feature-settings: normal;
-    font-variation-settings: normal;
-    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -68,17 +45,11 @@
     text-decoration: inherit;
   }
 
-  button,
-  input,
-  select,
-  optgroup,
-  textarea,
-  ::file-selector-button {
+  button {
     font: inherit;
     color: inherit;
     border-radius: 0;
     background-color: transparent;
-    opacity: 1;
   }
 }
 

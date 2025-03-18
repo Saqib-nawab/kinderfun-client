@@ -11,6 +11,9 @@ import NewsletterSection from '../components/NewsletterSection';
 const Home: React.FC = () => {
   return (
     <div className="bg-background text-text-dark min-h-screen mx-auto w-4/5 p-4">
+      <h1 className='text-4xl font-bold text-primary mb-4 hover:bg-[var(--secondary)]'>
+        Welcome to Kinderfun
+      </h1>
       <Herosection />
       <Videos />
       <AboutSection />

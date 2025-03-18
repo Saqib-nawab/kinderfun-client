@@ -1,24 +1,15 @@
-// src/pages/Rhymes.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface VideoItem {
-  id: {
-    videoId?: string;
-  };
+  id: { videoId?: string };
   snippet: {
     title: string;
     description: string;
-    thumbnails: {
-      medium: { url: string };
-    };
+    thumbnails: { medium: { url: string } };
   };
 }
 
-const categories = [
-  "Nursery Rhymes",
-  "Educational Songs",
-  "Storytime"
-];
+const categories = ["Nursery Rhymes", "Educational Songs", "Storytime"];
 
 const Rhymes: React.FC = () => {
   const [videos, setVideos] = useState<VideoItem[]>([]);
@@ -33,39 +24,41 @@ const Rhymes: React.FC = () => {
   const fetchVideos = async (isLoadMore = false) => {
     setLoading(true);
     try {
-      const baseUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&q=${encodeURIComponent(currentCategory)}`;
-      const url = isLoadMore && nextPageToken ? `${baseUrl}&pageToken=${nextPageToken}` : baseUrl;
+      const baseUrl = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&q=${encodeURIComponent(
+        currentCategory
+      )}`;
+      const url =
+        isLoadMore && nextPageToken
+          ? `${baseUrl}&pageToken=${nextPageToken}`
+          : baseUrl;
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Failed to fetch videos");
-      }
+      if (!response.ok) throw new Error("Failed to fetch videos");
       const data = await response.json();
-      // If not loading more, replace; otherwise append the new items.
-      setVideos((prevVideos) => isLoadMore ? [...prevVideos, ...data.items] : data.items);
+
+      setVideos((prev) => (isLoadMore ? [...prev, ...data.items] : data.items));
       setNextPageToken(data.nextPageToken || null);
       setError(null);
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unknown error occurred");
-      }
+      setError(
+        err instanceof Error ? err.message : "An unknown error occurred"
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  // Fetch videos when the component mounts or currentCategory changes.
   useEffect(() => {
-    // Reset videos and nextPageToken when category changes.
     setVideos([]);
     setNextPageToken(null);
     fetchVideos();
   }, [currentCategory]);
 
   return (
-    <div className="p-4">
-      <h1 className="text-4xl font-bold text-primary mb-4">Rhymes & Animation</h1>
+    <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+      <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
+        Rhymes & Animation
+      </h1>
+
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar with Categories */}
         <aside className="lg:col-span-1">
@@ -74,9 +67,12 @@ const Rhymes: React.FC = () => {
               <li key={cat}>
                 <button
                   onClick={() => setCurrentCategory(cat)}
-                  className={`w-full text-left px-4 py-2 rounded shadow transition ${
-                    currentCategory === cat ? "bg-secondary text-white" : "bg-white text-text-white hover:bg-secondary"
-                  }`}
+                  className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
+                    ${
+                      currentCategory === cat
+                        ? "bg-[var(--secondary)] text-white" // Selected category
+                        : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
+                    }`}
                 >
                   {cat}
                 </button>
@@ -89,13 +85,16 @@ const Rhymes: React.FC = () => {
         <section className="lg:col-span-3">
           {loading && <p>Loading videos...</p>}
           {error && <p>Error: {error}</p>}
+
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {videos.map((video) => {
               const videoId = video.id.videoId;
               if (!videoId) return null;
               return (
-                <div key={videoId} className="bg-white rounded-lg shadow overflow-hidden">
-                  {/* 16:9 iframe container */}
+                <div
+                  key={videoId}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden"
+                >
                   <div className="relative pb-[56.25%]">
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
@@ -107,8 +106,10 @@ const Rhymes: React.FC = () => {
                     ></iframe>
                   </div>
                   <div className="p-4">
-                    <h2 className="text-xl font-semibold text-primary">{video.snippet.title}</h2>
-                    <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                    <h2 className="text-xl font-semibold text-[var(--primary)]">
+                      {video.snippet.title}
+                    </h2>
+                    <p className="text-sm text-[var(--gray-dark)] mt-2 line-clamp-3">
                       {video.snippet.description}
                     </p>
                   </div>
@@ -122,7 +123,7 @@ const Rhymes: React.FC = () => {
             <div className="mt-8 text-center">
               <button
                 onClick={() => fetchVideos(true)}
-                className="px-6 py-2 bg-secondary text-white font-semibold rounded-md hover:bg-primary transition"
+                className="px-6 py-2 bg-[var(--secondary)] text-white font-semibold rounded-lg hover:bg-[var(--primary)] transition-all"
               >
                 Load More
               </button>
