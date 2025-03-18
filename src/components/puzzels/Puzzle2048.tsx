@@ -14,10 +14,19 @@ const Puzzle2048: React.FC = () => {
           About the Game:
         </h2>
         <p className="text-md text-[var(--text-dark)] mt-2">
-          **2048** is a **strategic number puzzle game** where players slide
-          numbered tiles on a grid to **combine matching values** and reach the
-          ultimate **2048 tile**! Plan your moves carefully to avoid getting
-          stuck!
+          <strong>2048</strong> is a{" "}
+          <strong>strategic number puzzle game</strong> where players slide
+          numbered tiles on a grid to <strong>combine matching values</strong>{" "}
+          and reach the ultimate
+          <strong>2048 tile</strong>! Plan your moves carefully to avoid getting
+          stuck.
+        </p>
+        <p className="text-md text-[var(--text-dark)] mt-2">
+          Playing 2048 helps improve{" "}
+          <strong>
+            strategic thinking, number sense, and logical problem-solving skills
+          </strong>
+          .
         </p>
       </div>
 
@@ -31,11 +40,18 @@ const Puzzle2048: React.FC = () => {
             Use <strong>WASD</strong> or <strong>Arrow Keys</strong> to slide
             tiles.
           </li>
-          <li>Tiles with the same number **merge** when they collide.</li>
-          <li>Keep merging tiles to reach **2048**!</li>
-          <li>Avoid **filling the board** without possible moves.</li>
           <li>
-            Plan your moves to set up **chain reactions** for high scores!
+            Tiles with the same number <strong>merge</strong> when they collide.
+          </li>
+          <li>
+            Keep merging tiles to reach <strong>2048</strong>!
+          </li>
+          <li>
+            Avoid <strong>filling the board</strong> without possible moves.
+          </li>
+          <li>
+            Plan your moves to set up <strong>chain reactions</strong> for high
+            scores!
           </li>
         </ul>
       </div>
