@@ -1,7 +1,7 @@
 // src/components/PixelWar.tsx
 import React from 'react';
 
-const GradAndMatch: React.FC = () => {
+const DragAndMatch: React.FC = () => {
     return (
         <iframe
             src="https://jojoee.github.io/phaser-examples/games/10000000/"
@@ -13,4 +13,4 @@ const GradAndMatch: React.FC = () => {
     );
 };
 
-export default GradAndMatch;
+export default DragAndMatch;
