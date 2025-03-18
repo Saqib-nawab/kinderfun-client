@@ -1,11 +1,11 @@
 import React from "react";
 
-const FlappyBirdPhaserGame: React.FC = () => {
+const Puzzle2048: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
       {/* Game Title */}
       <h1 className="text-3xl font-bold text-[var(--primary)] mb-2">
-        Flappy Bird - Navigate & Score!
+        2048 - Merge & Win!
       </h1>
 
       {/* Game Description */}
@@ -14,16 +14,19 @@ const FlappyBirdPhaserGame: React.FC = () => {
           About the Game:
         </h2>
         <p className="text-md text-[var(--text-dark)] mt-2">
-          <strong>Flappy Bird</strong> is a **fast-paced reflex game** where you
-          control a small bird, helping it navigate between gaps in the
-          buildings. Timing and precision are key to achieving the highest
-          score!
+          <strong>2048</strong> is a{" "}
+          <strong>strategic number puzzle game</strong> where players slide
+          numbered tiles on a grid to <strong>combine matching values</strong>{" "}
+          and reach the ultimate
+          <strong>2048 tile</strong>! Plan your moves carefully to avoid getting
+          stuck.
         </p>
         <p className="text-md text-[var(--text-dark)] mt-2">
-          This game enhances{" "}
-          <strong>hand-eye coordination, reaction time, and focus</strong>. A
-          single mistake can end your run, so stay sharp and aim for a high
-          score!
+          Playing 2048 helps improve{" "}
+          <strong>
+            strategic thinking, number sense, and logical problem-solving skills
+          </strong>
+          .
         </p>
       </div>
 
@@ -34,31 +37,32 @@ const FlappyBirdPhaserGame: React.FC = () => {
         </h2>
         <ul className="text-md text-[var(--text-dark)] list-disc list-inside mt-2">
           <li>
-            Click anywhere inside the game window to{" "}
-            <strong>start the game</strong>.
+            Use <strong>WASD</strong> or <strong>Arrow Keys</strong> to slide
+            tiles.
           </li>
           <li>
-            Tap or click to make the bird <strong>flap and ascend</strong>.
-          </li>
-          <li>Guide the bird through the **open gaps** between buildings.</li>
-          <li>Each successful pass through a gap earns **1 point**.</li>
-          <li>
-            Hitting a **wall, ground, or building** results in{" "}
-            <strong>game over</strong>.
+            Tiles with the same number <strong>merge</strong> when they collide.
           </li>
           <li>
-            Keep flapping and navigate **carefully** to get the highest score!
+            Keep merging tiles to reach <strong>2048</strong>!
+          </li>
+          <li>
+            Avoid <strong>filling the board</strong> without possible moves.
+          </li>
+          <li>
+            Plan your moves to set up <strong>chain reactions</strong> for high
+            scores!
           </li>
         </ul>
       </div>
 
-      {/* Game Frame - Fixed Size, Centered */}
+      {/* Game Frame - Fixed Size, No Scrollbars, Centered */}
       <div className="mt-6 flex justify-center items-center">
         <iframe
-          src="https://noowxela.github.io/phaser-examples/games/flappy-bird/"
-          title="Flappy Bird Game"
-          width="800"
-          height="600"
+          src="https://jojoee.github.io/phaser-examples/games/2048/"
+          title="2048 Game"
+          width="400"
+          height="400"
           className="border-none rounded-lg shadow-lg"
         />
       </div>
@@ -66,4 +70,4 @@ const FlappyBirdPhaserGame: React.FC = () => {
   );
 };
 
-export default FlappyBirdPhaserGame;
+export default Puzzle2048;

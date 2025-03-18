@@ -1,21 +1,21 @@
 import React, { useState, JSX } from "react";
-import PuzzlePhaserGame from "../components/puzzels/PuzzlePhaser";
 import SnakePhaserGame from "../components/games/SnakePhaserGame";
 import FlappyBirdPhaserGame from "../components/games/FlappyBirdPhaserGame";
 import RunPhaserGame from "../components/games/RunPhaserGame";
 import PixelWarGame from "../components/games/PixelWar";
 import BoxJumpGame from "../components/games/BoxJumpGame";
 import DragAndMatch from "../components/puzzels/DragAndMatchPuzzel";
+import Puzzle2048 from "../components/puzzels/Puzzle2048";
 
 type Category = "games" | "puzzles" | "quizzes" | "creativity" | null;
 type GameType =
-  | "puzzle"
   | "snake"
   | "flappy"
   | "run"
   | "pixelwar"
   | "boxjump"
   | "dragnmatch"
+  | "Puzzle2048"
   | null;
 
 const Activities: React.FC = () => {
@@ -29,20 +29,47 @@ const Activities: React.FC = () => {
         <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
           Educational Activities
         </h1>
-        <div className="flex flex-wrap justify-center gap-4">
+        <p className="text-lg text-[var(--text-dark)] max-w-3xl mx-auto mb-6">
+          Engaging in educational activities is a great way for children to
+          develop important skills such as **problem-solving, critical thinking,
+          creativity, and patience**. Each category below focuses on **different
+          aspects of learning and development**.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-6">
           {[
-            { name: "Games", category: "games" },
-            { name: "Puzzles", category: "puzzles" },
-            { name: "Quizzes", category: "quizzes" },
-            { name: "Creativity", category: "creativity" },
-          ].map(({ name, category }) => (
+            {
+              name: "Games",
+              category: "games",
+              description:
+                "Improve reaction time, hand-eye coordination, and strategic thinking.",
+            },
+            {
+              name: "Puzzles",
+              category: "puzzles",
+              description:
+                "Enhance problem-solving skills, spatial awareness, and cognitive development.",
+            },
+            {
+              name: "Quizzes",
+              category: "quizzes",
+              description:
+                "Boost memory, comprehension, and critical thinking abilities.",
+            },
+            {
+              name: "Creativity",
+              category: "creativity",
+              description:
+                "Encourage self-expression, imagination, and artistic development.",
+            },
+          ].map(({ name, category, description }) => (
             <div
               key={category}
-              className="bg-[var(--primary)] text-white p-4 rounded-lg shadow-md cursor-pointer w-64 transition-all hover:bg-[var(--secondary)] hover:shadow-lg"
+              className="bg-[var(--primary)] text-white p-6 rounded-lg shadow-md cursor-pointer w-72 transition-all hover:bg-[var(--secondary)] hover:shadow-lg"
               onClick={() => setSelectedCategory(category as Category)}
             >
               <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">Explore {name} activities</p>
+              <p className="text-sm opacity-90">{description}</p>
             </div>
           ))}
         </div>
@@ -63,8 +90,8 @@ const Activities: React.FC = () => {
     ];
 
     const puzzleItems = [
-      { name: "Puzzle Game", game: "puzzle" },
       { name: "Drag and Match", game: "dragnmatch" },
+      { name: "Puzzle 2048", game: "Puzzle2048" },
     ];
 
     if (selectedCategory === "games") {
@@ -77,7 +104,6 @@ const Activities: React.FC = () => {
               onClick={() => setSelectedGame(game as GameType)}
             >
               <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">Fun & challenging gameplay</p>
             </div>
           ))}
         </div>
@@ -92,7 +118,6 @@ const Activities: React.FC = () => {
               onClick={() => setSelectedGame(game as GameType)}
             >
               <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">Solve fun puzzles</p>
             </div>
           ))}
         </div>
@@ -130,8 +155,6 @@ const Activities: React.FC = () => {
   // Step 3: Render the selected activity/game
   const renderGame = () => {
     switch (selectedGame) {
-      case "puzzle":
-        return <PuzzlePhaserGame />;
       case "snake":
         return <SnakePhaserGame />;
       case "flappy":
@@ -144,6 +167,8 @@ const Activities: React.FC = () => {
         return <BoxJumpGame />;
       case "dragnmatch":
         return <DragAndMatch />;
+      case "Puzzle2048":
+        return <Puzzle2048 />;
       default:
         return null;
     }
