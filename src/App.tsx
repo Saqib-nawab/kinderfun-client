@@ -1,13 +1,13 @@
 // src/App.tsx
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Rhymes from './pages/Rhymes';
-import Activities from './pages/Activities';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Rhymes from "./pages/Rhymes";
+import Activities from "./pages/Activities";
+import BlogCategories from "./pages/BlogCategories";
+import Contact from "./pages/Contact";
 
 const App: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rhymes" element={<Rhymes />} />
           <Route path="/activities" element={<Activities />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<BlogCategories />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

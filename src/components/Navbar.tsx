@@ -11,6 +11,8 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleDesktopBlogDropdown = () =>
+    setBlogDropdownOpen(!blogDropdownOpen);
   const toggleMobileBlogDropdown = () =>
     setMobileBlogDropdownOpen(!mobileBlogDropdownOpen);
 
@@ -75,13 +77,10 @@ const Navbar: React.FC = () => {
               </li>
             ))}
 
-            {/* Blog Dropdown for Desktop */}
-            <li
-              className="relative"
-              onMouseEnter={() => setBlogDropdownOpen(true)}
-              onMouseLeave={() => setBlogDropdownOpen(false)}
-            >
+            {/* Blog Dropdown for Desktop - toggled on click */}
+            <li className="relative">
               <button
+                onClick={toggleDesktopBlogDropdown}
                 className={`text-white text-lg px-3 py-2 rounded-md transition flex items-center ${
                   location.pathname.startsWith("/blog")
                     ? "bg-secondary text-white"
@@ -105,7 +104,7 @@ const Navbar: React.FC = () => {
                     ))}
                     <li>
                       <Link
-                        to="/blog/categories"
+                        to="/blog"
                         className="block px-4 py-2 text-dark font-semibold hover:bg-gray-100"
                       >
                         More
@@ -164,7 +163,7 @@ const Navbar: React.FC = () => {
                     ))}
                     <li>
                       <Link
-                        to="/blog/categories"
+                        to="/blog"
                         className="block text-dark text-base px-4 py-2 rounded-md font-semibold transition hover:bg-gray-light hover:text-primary"
                         onClick={() => {
                           setIsOpen(false);
