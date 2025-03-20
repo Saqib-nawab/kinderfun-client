@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Videos: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const Videos: React.FC = () => {
         <iframe
           width="100%"
           height="400"
-          src="https://www.youtube.com/embed/K9ohimZIUU0?autoplay=1&controls=0&mute=1"
+          src="https://www.youtube.com/embed/iyNU9ykFuhg?autoplay=1&controls=0&mute=1"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -25,7 +25,7 @@ const Videos: React.FC = () => {
           <iframe
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/K9ohimZIUU0?si=8v_VAaZMwISnPhbw"
+            src="https://www.youtube.com/embed/UuTA-vg8KKA"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -40,7 +40,7 @@ const Videos: React.FC = () => {
           <iframe
             width="100%"
             height="315"
-            src="https://www.youtube.com/embed/K9ohimZIUU0?si=8v_VAaZMwISnPhbw"
+            src="https://www.youtube.com/embed/ATVbjumTOxc"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

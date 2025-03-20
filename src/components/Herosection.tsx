@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import hero1 from "../assets/hero-1-1.jpg";
 
 const slideContent = (
   <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -41,7 +40,10 @@ const slideContent = (
 
     {/* Image Content */}
     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-      <img src={hero1} alt="Kinderfun illustration" className="object-cover" />
+      <img
+        // src="https://dummyimage.com/1920x1080/ccc/fff"
+        className="object-cover"
+      />
     </div>
   </div>
 );

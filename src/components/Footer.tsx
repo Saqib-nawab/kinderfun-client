@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -20,6 +20,20 @@ import image2 from "../assets/gal-2-2-2.jpg";
 import image3 from "../assets/gal-2-3-2.jpg";
 
 const Footer: React.FC = () => {
+  // Optionally load the YouTube platform script if needed elsewhere
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/platform.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const channelId = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
+  const subscribeUrl = `https://www.youtube.com/channel/${channelId}?sub_confirmation=1`;
+
   return (
     <footer className="w-screen bg-primary text-white py-10 ml-0">
       <div className="max-w-7xl mx-auto px-6">
@@ -130,6 +144,17 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
+            {/* Solid YouTube Subscribe Button */}
+            <div className="mt-4">
+              <a
+                href={subscribeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-secondary text-white font-bold px-4 py-2 rounded hover:bg-accent transition"
+              >
+                Subscribe on YouTube
+              </a>
+            </div>
           </div>
         </div>
 
