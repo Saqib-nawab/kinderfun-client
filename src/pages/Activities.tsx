@@ -6,6 +6,10 @@ import PixelWarGame from "../components/games/PixelWar";
 import BoxJumpGame from "../components/games/BoxJumpGame";
 import DragAndMatch from "../components/puzzels/DragAndMatchPuzzel";
 import Puzzle2048 from "../components/puzzels/Puzzle2048";
+import ArithmeticQuiz from "../components/quizzes/ArithmeticQuiz";
+import CrosswordQuiz from "../components/quizzes/CrosswordQuiz";
+import DragTheWordsPuzzle from "../components/quizzes/DragTheWordsPuzzle";
+import FindTheWordsPuzzle from "../components/quizzes/FindTheWordsPuzzle";
 
 type Category = "games" | "puzzles" | "quizzes" | "creativity" | null;
 type GameType =
@@ -16,6 +20,10 @@ type GameType =
   | "boxjump"
   | "dragnmatch"
   | "Puzzle2048"
+  | "ArithmeticQuiz"
+  | "crossword"
+  | "worddrag"
+  | "findwords"
   | null;
 
 const Activities: React.FC = () => {
@@ -31,9 +39,12 @@ const Activities: React.FC = () => {
         </h1>
         <p className="text-lg text-[var(--text-dark)] max-w-3xl mx-auto mb-6">
           Engaging in educational activities is a great way for children to
-          develop important skills such as **problem-solving, critical thinking,
-          creativity, and patience**. Each category below focuses on **different
-          aspects of learning and development**.
+          develop important skills such as{" "}
+          <strong>
+            problem-solving, critical thinking, creativity, and patience
+          </strong>
+          . Each category below focuses on{" "}
+          <strong>different aspects of learning and development</strong>.
         </p>
 
         <div className="flex flex-wrap justify-center gap-6">
@@ -94,6 +105,13 @@ const Activities: React.FC = () => {
       { name: "Puzzle 2048", game: "Puzzle2048" },
     ];
 
+    const quizItems = [
+      { name: "Arithmetic Quizzes", game: "ArithmeticQuiz" },
+      { name: "Crossword Quiz", game: "crossword" },
+      { name: "Word Drag Quiz", game: "worddrag" },
+      { name: "Find the Words", game: "findwords" },
+    ];
+
     if (selectedCategory === "games") {
       activitiesContent = (
         <div className="flex flex-wrap justify-center gap-4">
@@ -112,6 +130,20 @@ const Activities: React.FC = () => {
       activitiesContent = (
         <div className="flex flex-wrap justify-center gap-4">
           {puzzleItems.map(({ name, game }) => (
+            <div
+              key={game}
+              className="bg-[var(--secondary)] text-white p-4 rounded-lg shadow-md cursor-pointer w-64 transition-all hover:bg-[var(--primary)] hover:shadow-lg"
+              onClick={() => setSelectedGame(game as GameType)}
+            >
+              <h2 className="text-2xl font-semibold">{name}</h2>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (selectedCategory === "quizzes") {
+      activitiesContent = (
+        <div className="flex flex-wrap justify-center gap-4">
+          {quizItems.map(({ name, game }) => (
             <div
               key={game}
               className="bg-[var(--secondary)] text-white p-4 rounded-lg shadow-md cursor-pointer w-64 transition-all hover:bg-[var(--primary)] hover:shadow-lg"
@@ -169,6 +201,14 @@ const Activities: React.FC = () => {
         return <DragAndMatch />;
       case "Puzzle2048":
         return <Puzzle2048 />;
+      case "ArithmeticQuiz":
+        return <ArithmeticQuiz />;
+      case "crossword":
+        return <CrosswordQuiz />;
+      case "worddrag":
+        return <DragTheWordsPuzzle />;
+      case "findwords":
+        return <FindTheWordsPuzzle />;
       default:
         return null;
     }
