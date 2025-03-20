@@ -1,3 +1,4 @@
+// src/components/Footer.tsx
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,15 +13,13 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import logo from "../assets/logo.jpg"; // Ensure logo exists in assets folder
+import logo from "../assets/logo.jpg";
 
 //assets
 import image1 from "../assets/gal-2-1-2.jpg";
 import image2 from "../assets/gal-2-2-2.jpg";
-import image3 from "../assets/gal-2-3-2.jpg";
 
 const Footer: React.FC = () => {
-  // Optionally load the YouTube platform script if needed elsewhere
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://apis.google.com/js/platform.js";
@@ -35,7 +34,7 @@ const Footer: React.FC = () => {
   const subscribeUrl = `https://www.youtube.com/channel/${channelId}?sub_confirmation=1`;
 
   return (
-    <footer className="w-screen bg-primary text-white py-10 ml-0">
+    <footer className="w-4/5 mx-auto bg-primary text-white py-10 my-4 rounded-3xl shadow-md">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -53,7 +52,7 @@ const Footer: React.FC = () => {
               <FontAwesomeIcon icon={faMapMarkerAlt} className="text-accent" />
               Town, Country 12345
             </p>
-            {/* 📸 Image Section Below Location */}
+            {/* Gallery Images */}
             <div className="mt-4 flex gap-2">
               <img
                 src={image1}
@@ -63,11 +62,6 @@ const Footer: React.FC = () => {
               <img
                 src={image2}
                 alt="Gallery 2"
-                className="w-30 h-30 rounded-lg object-cover"
-              />
-              <img
-                src={image3}
-                alt="Gallery 3"
                 className="w-30 h-30 rounded-lg object-cover"
               />
             </div>
@@ -103,7 +97,7 @@ const Footer: React.FC = () => {
               </Link>
             </p>
 
-            {/* 📍 Google Maps Location */}
+            {/* Google Maps */}
             <div className="mt-4">
               <iframe
                 title="Kinder Fun Location"
@@ -144,7 +138,7 @@ const Footer: React.FC = () => {
                 </li>
               ))}
             </ul>
-            {/* Solid YouTube Subscribe Button */}
+            {/* YouTube Subscribe Button */}
             <div className="mt-4">
               <a
                 href={subscribeUrl}
