@@ -1,3 +1,4 @@
+// src/pages/CategoryBlogs.tsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 
@@ -22,7 +23,7 @@ const CategoryBlogs: React.FC<CategoryBlogsProps> = ({ blogs }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">
+      <h1 className="text-3xl font-bold mb-6 text-[var(--primary)]">
         {categorySlug ? categorySlug.replace(/-/g, " ") : "Unknown"} Blogs
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -44,12 +45,21 @@ const CategoryBlogs: React.FC<CategoryBlogsProps> = ({ blogs }) => {
             {/* Link to the detailed blog view */}
             <Link
               to={`/blogs/${blog.id}`}
-              className="mt-4 inline-block text-blue-500 underline"
+              className="mt-4 inline-block text-[var(--secondary)] underline"
             >
               Read More
             </Link>
           </div>
         ))}
+      </div>
+      {/* Optionally add a link to go back to the blog categories page */}
+      <div className="mt-8">
+        <Link
+          to="/blog"
+          className="inline-block bg-[var(--primary)] text-[var(--text-white)] px-4 py-2 rounded hover:bg-[var(--secondary)] transition"
+        >
+          Back to Categories
+        </Link>
       </div>
     </div>
   );

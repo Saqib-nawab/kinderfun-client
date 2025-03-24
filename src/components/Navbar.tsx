@@ -95,7 +95,8 @@ const Navbar: React.FC = () => {
                     {blogCategories.map((category) => (
                       <li key={category.slug}>
                         <Link
-                          to={`/blog/category/${category.slug}`}
+                          // Updated link: Remove "/blog" prefix.
+                          to={`/category/${category.slug}`}
                           className="block px-4 py-2 text-dark hover:bg-gray-100"
                         >
                           {category.name}
@@ -141,7 +142,7 @@ const Navbar: React.FC = () => {
               <li>
                 <button
                   onClick={toggleMobileBlogDropdown}
-                  className="flex w-full items-center justify-between text-dark text-lg px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary focus:outline-none"
+                  className="flex w-full items-center justify-between text-white text-lg px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary focus:outline-none"
                 >
                   Blog <ChevronDown size={16} />
                 </button>
@@ -150,7 +151,8 @@ const Navbar: React.FC = () => {
                     {blogCategories.map((category) => (
                       <li key={category.slug}>
                         <Link
-                          to={`/blog/category/${category.slug}`}
+                          // Updated link: Remove "/blog" prefix.
+                          to={`/category/${category.slug}`}
                           className="block text-dark text-base px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary"
                           onClick={() => {
                             setIsOpen(false);
@@ -164,7 +166,7 @@ const Navbar: React.FC = () => {
                     <li>
                       <Link
                         to="/blog"
-                        className="block text-dark text-base px-4 py-2 rounded-md font-semibold transition hover:bg-gray-light hover:text-primary"
+                        className="block text-white text-base px-4 py-2 rounded-md font-semibold transition hover:bg-gray-light hover:text-white"
                         onClick={() => {
                           setIsOpen(false);
                           setMobileBlogDropdownOpen(false);

@@ -257,7 +257,7 @@ const Blog: React.FC<BlogCategoriesProps> = ({ blogs }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {categories.map((category) => (
           <Link to={`/category/${category.slug}`} key={category.slug}>
-            <div className="group relative bg-primary text-white flex flex-col items-center justify-center p-4 aspect-square rounded-lg shadow-md hover:bg-secondary transition">
+            <div className="group relative bg-[var(--primary)] text-white flex flex-col items-center justify-center p-4 aspect-square rounded-lg shadow-md hover:bg-[var(--secondary)] transition">
               {/* Icon */}
               <FontAwesomeIcon icon={category.icon} size="2x" />
               {/* Category Name */}
