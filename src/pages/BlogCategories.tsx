@@ -245,7 +245,7 @@ const categories: Category[] = [
 
 const Blog: React.FC<BlogCategoriesProps> = ({ blogs }) => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="mx-auto w-4/5 p-4 bg-background text-text-dark">
       {/* Heading */}
       <h1 className="text-3xl font-bold mb-4 text-primary">Blog Categories</h1>
       <p className="text-gray-dark mb-8">

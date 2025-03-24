@@ -215,7 +215,7 @@ const Activities: React.FC = () => {
   };
 
   return (
-    <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+    <div className="bg-[var(--background)] text-[var(--text-dark)] font-sans">
       <button
         onClick={() => setSelectedGame(null)}
         className="px-4 py-2 bg-[var(--secondary)] text-white rounded-lg mb-4 hover:bg-[var(--primary)] transition-all"
