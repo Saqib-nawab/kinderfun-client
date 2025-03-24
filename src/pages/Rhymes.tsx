@@ -1,3 +1,4 @@
+// src/pages/Rhymes.tsx
 import React, { useState, useEffect } from "react";
 
 interface VideoItem {
@@ -54,7 +55,7 @@ const Rhymes: React.FC = () => {
   }, [currentCategory]);
 
   return (
-    <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+    <div className="min-h-screen p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
       <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
         Rhymes & Animation
       </h1>
@@ -70,7 +71,7 @@ const Rhymes: React.FC = () => {
                   className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
                     ${
                       currentCategory === cat
-                        ? "bg-[var(--secondary)] text-white" // Selected category
+                        ? "bg-[var(--secondary)] text-white"
                         : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
                     }`}
                 >
