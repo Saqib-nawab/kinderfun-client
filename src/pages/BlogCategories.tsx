@@ -1,6 +1,7 @@
 // src/pages/Blog.tsx
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {
   faChild,
   faMusic,
@@ -33,15 +34,31 @@ import {
   faMicrophone,
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
+// Define a Category interface for internal categories
 interface Category {
   name: string;
   description: string;
-  icon: any; // FontAwesomeIcon type
+  icon: IconDefinition;
   slug: string;
 }
 
-// Our 30 categories
+// Define a BlogData interface for blog items
+export interface BlogData {
+  id: string;
+  category: string;
+  title: string;
+  image: string;
+  description: string;
+}
+
+// Define the props interface for the BlogCategories component
+interface BlogCategoriesProps {
+  blogs: BlogData[];
+}
+
+// Our internal 30 categories array
 const categories: Category[] = [
   {
     name: "Early Learning & Development",
@@ -226,7 +243,7 @@ const categories: Category[] = [
   },
 ];
 
-const Blog: React.FC = () => {
+const Blog: React.FC<BlogCategoriesProps> = ({ blogs }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Heading */}
@@ -239,17 +256,16 @@ const Blog: React.FC = () => {
       {/* Grid of Categories */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {categories.map((category) => (
-          <div
-            key={category.slug}
-            className="group relative bg-primary text-white flex flex-col items-center justify-center p-4 aspect-square rounded-lg shadow-md hover:bg-secondary transition"
-          >
-            {/* Icon */}
-            <FontAwesomeIcon icon={category.icon} size="2x" />
-            {/* Category Name */}
-            <span className="mt-2 text-center text-sm sm:text-base font-semibold">
-              {category.name}
-            </span>
-          </div>
+          <Link to={`/category/${category.slug}`} key={category.slug}>
+            <div className="group relative bg-primary text-white flex flex-col items-center justify-center p-4 aspect-square rounded-lg shadow-md hover:bg-secondary transition">
+              {/* Icon */}
+              <FontAwesomeIcon icon={category.icon} size="2x" />
+              {/* Category Name */}
+              <span className="mt-2 text-center text-sm sm:text-base font-semibold">
+                {category.name}
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

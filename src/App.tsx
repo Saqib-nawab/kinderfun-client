@@ -6,8 +6,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Rhymes from "./pages/Rhymes";
 import Activities from "./pages/Activities";
-import BlogCategories from "./pages/BlogCategories";
+import BlogCategories from "./pages/BlogCategories"; // Grid of category cards
+import CategoryBlogs from "./pages/CategoryBlogs"; // Lists blogs for a selected category
+import BlogDetail from "./pages/BlogDetail"; // Displays a single blog in full
 import Contact from "./pages/Contact";
+
+// Import blogs from JSON data. The JSON exports an object with a property "blogs".
+import blogsData from "./data/blogs.json";
 
 const App: React.FC = () => {
   return (
@@ -18,7 +23,21 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rhymes" element={<Rhymes />} />
           <Route path="/activities" element={<Activities />} />
-          <Route path="/blog" element={<BlogCategories />} />
+          {/* Blog categories page: grid of category cards */}
+          <Route
+            path="/blog"
+            element={<BlogCategories blogs={blogsData.blogs} />}
+          />
+          {/* Route to show all blogs for a given category */}
+          <Route
+            path="/category/:categorySlug"
+            element={<CategoryBlogs blogs={blogsData.blogs} />}
+          />
+          {/* Route for individual blog details */}
+          <Route
+            path="/blogs/:blogId"
+            element={<BlogDetail blogs={blogsData.blogs} />}
+          />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
