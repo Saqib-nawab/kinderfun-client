@@ -23,14 +23,14 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ blogs }) => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="bg-background text-text-dark min-h-screen mx-auto w-4/5 p-4">
       <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
       <img
         src={blog.image}
         alt={blog.title}
         className="w-full h-64 object-cover rounded mb-6"
       />
-      {/* Using dangerouslySetInnerHTML to render mixed formatting (bold + normal) */}
+      {/* Render the description as HTML */}
       <div
         className="prose"
         dangerouslySetInnerHTML={{ __html: blog.description }}
