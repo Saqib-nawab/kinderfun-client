@@ -55,82 +55,84 @@ const Rhymes: React.FC = () => {
   }, [currentCategory]);
 
   return (
-    <div className="min-h-screen p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
-      <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
-        Rhymes & Animation
-      </h1>
+    <div className="w-4/5 mx-auto mt-4 relative">
+      <div className="min-h-screen p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+        <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
+          Rhymes & Animation
+        </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar with Categories */}
-        <aside className="lg:col-span-1">
-          <ul className="space-y-4">
-            {categories.map((cat) => (
-              <li key={cat}>
-                <button
-                  onClick={() => setCurrentCategory(cat)}
-                  className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
-                    ${
-                      currentCategory === cat
-                        ? "bg-[var(--secondary)] text-white"
-                        : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
-                    }`}
-                >
-                  {cat}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar with Categories */}
+          <aside className="lg:col-span-1">
+            <ul className="space-y-4">
+              {categories.map((cat) => (
+                <li key={cat}>
+                  <button
+                    onClick={() => setCurrentCategory(cat)}
+                    className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
+                      ${
+                        currentCategory === cat
+                          ? "bg-[var(--secondary)] text-white"
+                          : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
+                      }`}
+                  >
+                    {cat}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </aside>
 
-        {/* Video Grid */}
-        <section className="lg:col-span-3">
-          {loading && <p>Loading videos...</p>}
-          {error && <p>Error: {error}</p>}
+          {/* Video Grid */}
+          <section className="lg:col-span-3">
+            {loading && <p>Loading videos...</p>}
+            {error && <p>Error: {error}</p>}
 
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {videos.map((video) => {
-              const videoId = video.id.videoId;
-              if (!videoId) return null;
-              return (
-                <div
-                  key={videoId}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden"
-                >
-                  <div className="relative pb-[56.25%]">
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src={`https://www.youtube.com/embed/${videoId}`}
-                      title={video.snippet.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              {videos.map((video) => {
+                const videoId = video.id.videoId;
+                if (!videoId) return null;
+                return (
+                  <div
+                    key={videoId}
+                    className="bg-white rounded-lg shadow-lg overflow-hidden"
+                  >
+                    <div className="relative pb-[56.25%]">
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full"
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        title={video.snippet.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <div className="p-4">
+                      <h2 className="text-xl font-semibold text-[var(--primary)]">
+                        {video.snippet.title}
+                      </h2>
+                      <p className="text-sm text-[var(--gray-dark)] mt-2 line-clamp-3">
+                        {video.snippet.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h2 className="text-xl font-semibold text-[var(--primary)]">
-                      {video.snippet.title}
-                    </h2>
-                    <p className="text-sm text-[var(--gray-dark)] mt-2 line-clamp-3">
-                      {video.snippet.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Load More Button */}
-          {nextPageToken && !loading && (
-            <div className="mt-8 text-center">
-              <button
-                onClick={() => fetchVideos(true)}
-                className="px-6 py-2 bg-[var(--secondary)] text-white font-semibold rounded-lg hover:bg-[var(--primary)] transition-all"
-              >
-                Load More
-              </button>
+                );
+              })}
             </div>
-          )}
-        </section>
+
+            {/* Load More Button */}
+            {nextPageToken && !loading && (
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => fetchVideos(true)}
+                  className="px-6 py-2 bg-[var(--secondary)] text-white font-semibold rounded-lg hover:bg-[var(--primary)] transition-all"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+// src/pages/Activities.tsx
 import React, { useState, JSX } from "react";
 import SnakePhaserGame from "../components/games/SnakePhaserGame";
 import FlappyBirdPhaserGame from "../components/games/FlappyBirdPhaserGame";
@@ -33,56 +34,57 @@ const Activities: React.FC = () => {
   // Step 1: Select a category
   if (!selectedCategory) {
     return (
-      <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans text-center">
-        <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
-          Educational Activities
-        </h1>
-        <p className="text-lg text-[var(--text-dark)] max-w-3xl mx-auto mb-6">
-          Engaging in educational activities is a great way for children to
-          develop important skills such as{" "}
-          <strong>
-            problem-solving, critical thinking, creativity, and patience
-          </strong>
-          . Each category below focuses on{" "}
-          <strong>different aspects of learning and development</strong>.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-6">
-          {[
-            {
-              name: "Games",
-              category: "games",
-              description:
-                "Improve reaction time, hand-eye coordination, and strategic thinking.",
-            },
-            {
-              name: "Puzzles",
-              category: "puzzles",
-              description:
-                "Enhance problem-solving skills, spatial awareness, and cognitive development.",
-            },
-            {
-              name: "Quizzes",
-              category: "quizzes",
-              description:
-                "Boost memory, comprehension, and critical thinking abilities.",
-            },
-            {
-              name: "Creativity",
-              category: "creativity",
-              description:
-                "Encourage self-expression, imagination, and artistic development.",
-            },
-          ].map(({ name, category, description }) => (
-            <div
-              key={category}
-              className="bg-[var(--primary)] text-white p-6 rounded-lg shadow-md cursor-pointer w-72 transition-all hover:bg-[var(--secondary)] hover:shadow-lg"
-              onClick={() => setSelectedCategory(category as Category)}
-            >
-              <h2 className="text-2xl font-semibold">{name}</h2>
-              <p className="text-sm opacity-90">{description}</p>
-            </div>
-          ))}
+      <div className="w-4/5 mx-auto mt-4 relative">
+        <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans text-center">
+          <h1 className="text-4xl font-bold text-[var(--primary)] mb-4">
+            Educational Activities
+          </h1>
+          <p className="text-lg text-[var(--text-dark)] max-w-3xl mx-auto mb-6">
+            Engaging in educational activities is a great way for children to
+            develop important skills such as{" "}
+            <strong>
+              problem-solving, critical thinking, creativity, and patience
+            </strong>
+            . Each category below focuses on{" "}
+            <strong>different aspects of learning and development</strong>.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            {[
+              {
+                name: "Games",
+                category: "games",
+                description:
+                  "Improve reaction time, hand-eye coordination, and strategic thinking.",
+              },
+              {
+                name: "Puzzles",
+                category: "puzzles",
+                description:
+                  "Enhance problem-solving skills, spatial awareness, and cognitive development.",
+              },
+              {
+                name: "Quizzes",
+                category: "quizzes",
+                description:
+                  "Boost memory, comprehension, and critical thinking abilities.",
+              },
+              {
+                name: "Creativity",
+                category: "creativity",
+                description:
+                  "Encourage self-expression, imagination, and artistic development.",
+              },
+            ].map(({ name, category, description }) => (
+              <div
+                key={category}
+                className="bg-[var(--primary)] text-white p-6 rounded-lg shadow-md cursor-pointer w-72 transition-all hover:bg-[var(--secondary)] hover:shadow-lg"
+                onClick={() => setSelectedCategory(category as Category)}
+              >
+                <h2 className="text-2xl font-semibold">{name}</h2>
+                <p className="text-sm opacity-90">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -165,21 +167,24 @@ const Activities: React.FC = () => {
     }
 
     return (
-      <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
-        <button
-          onClick={() => {
-            setSelectedCategory(null);
-            setSelectedGame(null);
-          }}
-          className="px-4 py-2 bg-[var(--secondary)] text-white rounded-lg mb-4 hover:bg-[var(--primary)] transition-all"
-        >
-          &larr; Back to Categories
-        </button>
-        <h2 className="text-4xl font-bold text-[var(--primary)] mb-4">
-          {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}{" "}
-          Activities
-        </h2>
-        {activitiesContent}
+      <div className="w-4/5 mx-auto mt-4 relative">
+        <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+          <button
+            onClick={() => {
+              setSelectedCategory(null);
+              setSelectedGame(null);
+            }}
+            className="px-4 py-2 bg-[var(--secondary)] text-white rounded-lg mb-4 hover:bg-[var(--primary)] transition-all"
+          >
+            &larr; Back to Categories
+          </button>
+          <h2 className="text-4xl font-bold text-[var(--primary)] mb-4">
+            {selectedCategory.charAt(0).toUpperCase() +
+              selectedCategory.slice(1)}{" "}
+            Activities
+          </h2>
+          {activitiesContent}
+        </div>
       </div>
     );
   }
@@ -215,14 +220,16 @@ const Activities: React.FC = () => {
   };
 
   return (
-    <div className="bg-[var(--background)] text-[var(--text-dark)] font-sans">
-      <button
-        onClick={() => setSelectedGame(null)}
-        className="px-4 py-2 bg-[var(--secondary)] text-white rounded-lg mb-4 hover:bg-[var(--primary)] transition-all"
-      >
-        &larr; Back to Activities
-      </button>
-      {renderGame()}
+    <div className="w-4/5 mx-auto mt-4 relative">
+      <div className="p-4 bg-[var(--background)] text-[var(--text-dark)] font-sans">
+        <button
+          onClick={() => setSelectedGame(null)}
+          className="px-4 py-2 bg-[var(--secondary)] text-white rounded-lg mb-4 hover:bg-[var(--primary)] transition-all"
+        >
+          &larr; Back to Activities
+        </button>
+        {renderGame()}
+      </div>
     </div>
   );
 };

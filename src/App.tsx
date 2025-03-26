@@ -6,24 +6,24 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Rhymes from "./pages/Rhymes";
 import Activities from "./pages/Activities";
-import BlogCategories from "./pages/BlogCategories"; // Grid of category cards
-import CategoryBlogs from "./pages/CategoryBlogs"; // Lists blogs for a selected category
-import BlogDetail from "./pages/BlogDetail"; // Displays a single blog in full
+import BlogCategories from "./pages/BlogCategories";
+import CategoryBlogs from "./pages/CategoryBlogs";
+import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 
-// Import blogs from JSON data. The JSON exports an object with a property "blogs".
 import blogsData from "./data/blogs.json";
 
 const App: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="w-4/5 mx-auto mt-4 relative flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow mt-16 md:mt-20">
+
+      {/* Main content area grows to fill vertical space */}
+      <main className="flex-grow mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rhymes" element={<Rhymes />} />
           <Route path="/activities" element={<Activities />} />
-          {/* Blog categories page: grid of category cards */}
           <Route
             path="/blog"
             element={
@@ -35,7 +35,6 @@ const App: React.FC = () => {
               />
             }
           />
-          {/* Route to show all blogs for a given category */}
           <Route
             path="/category/:categorySlug"
             element={
@@ -47,7 +46,6 @@ const App: React.FC = () => {
               />
             }
           />
-          {/* Route for individual blog details */}
           <Route
             path="/blogs/:blogId"
             element={<BlogDetail blogs={blogsData.blogs} />}
@@ -55,6 +53,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+
       <Footer />
     </div>
   );

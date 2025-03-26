@@ -38,6 +38,7 @@
     background-color: var(--background);
     color: var(--text-dark);
     line-height: inherit;
+    overflow-x: hidden;
   }
 
   a {

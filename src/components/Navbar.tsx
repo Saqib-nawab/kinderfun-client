@@ -16,7 +16,6 @@ const Navbar: React.FC = () => {
   const toggleMobileBlogDropdown = () =>
     setMobileBlogDropdownOpen(!mobileBlogDropdownOpen);
 
-  // Define the top 5 blog categories with their slugs.
   const blogCategories = [
     {
       name: "Early Learning & Development",
@@ -28,7 +27,6 @@ const Navbar: React.FC = () => {
     { name: "Colors & Shapes Exploration", slug: "colors-shapes-exploration" },
   ];
 
-  // Main navigation links (excluding Blog which is handled separately)
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Rhymes & Animation", path: "/rhymes" },
@@ -37,8 +35,8 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <div className="w-4/5 mx-auto mt-4 relative">
-      {/* Navbar Section */}
+    // Remove the w-4/5 mx-auto here
+    <div className="relative">
       <nav className="bg-primary shadow-md rounded-4xl">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           {/* Logo */}
@@ -77,7 +75,7 @@ const Navbar: React.FC = () => {
               </li>
             ))}
 
-            {/* Blog Dropdown for Desktop - toggled on click */}
+            {/* Blog Dropdown for Desktop */}
             <li className="relative">
               <button
                 onClick={toggleDesktopBlogDropdown}
@@ -95,7 +93,6 @@ const Navbar: React.FC = () => {
                     {blogCategories.map((category) => (
                       <li key={category.slug}>
                         <Link
-                          // Updated link: Remove "/blog" prefix.
                           to={`/category/${category.slug}`}
                           className="block px-4 py-2 text-dark hover:bg-gray-100"
                         >
@@ -151,7 +148,6 @@ const Navbar: React.FC = () => {
                     {blogCategories.map((category) => (
                       <li key={category.slug}>
                         <Link
-                          // Updated link: Remove "/blog" prefix.
                           to={`/category/${category.slug}`}
                           className="block text-dark text-base px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary"
                           onClick={() => {
