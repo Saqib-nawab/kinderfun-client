@@ -1,4 +1,3 @@
-// src/pages/Home.tsx
 import React from "react";
 import Videos from "../components/Videos";
 import Herosection from "../components/Herosection";
@@ -10,7 +9,7 @@ import NewsletterSection from "../components/NewsletterSection";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-background text-text-dark min-h-screen mx-auto w-4/5 p-4">
+    <div className="bg-background text-text-dark min-h-screen mx-auto w-full sm:w-4/5 p-4">
       <Herosection />
       <Videos />
       <AboutSection />

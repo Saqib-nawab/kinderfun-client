@@ -15,7 +15,7 @@ import blogsData from "./data/blogs.json";
 
 const App: React.FC = () => {
   return (
-    <div className="w-4/5 mx-auto mt-4 relative flex flex-col min-h-screen">
+    <div className="container mx-auto mt-4 relative flex flex-col min-h-screen">
       <Navbar />
 
       {/* Main content area grows to fill vertical space */}
