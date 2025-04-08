@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const AboutSection: React.FC = () => {
   return (
     <section className="bg-background text-text-dark py-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        
         {/* Left Column: 2x2 Image Grid */}
         <div className="grid grid-cols-2 grid-rows-2 gap-4">
           <img
@@ -43,8 +42,9 @@ const AboutSection: React.FC = () => {
 
           {/* Paragraph / Description */}
           <p className="text-lg text-gray-dark mb-6">
-            We are constantly expanding the range of services offered, taking care of children of all ages. 
-            Our goal is to carefully educate and develop children in a fun way. We strive to turn the learning 
+            We are constantly expanding the range of services offered, taking
+            care of children of all ages. Our goal is to carefully educate and
+            develop children in a fun way. We strive to turn the learning
             process into a bright event so that children study with pleasure.
           </p>
 
