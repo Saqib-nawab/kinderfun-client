@@ -1,6 +1,6 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 const NewsletterSection: React.FC = () => {
   return (
@@ -46,8 +46,23 @@ const NewsletterSection: React.FC = () => {
           />
 
           {/* Hidden anti-spam field */}
-          <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-            <input type="text" name="b_a999554dca1f40559a9cbd859_c3e96c417a" tabIndex={-1} value="" readOnly />
+          <div
+            style={{
+              position: "absolute",
+              left: "-5000px",
+              width: 0,
+              height: 0,
+              overflow: "hidden",
+            }}
+            aria-hidden="true"
+          >
+            <input
+              type="text"
+              name="b_a999554dca1f40559a9cbd859_c3e96c417a"
+              tabIndex={-1}
+              value=""
+              readOnly
+            />
           </div>
         </form>
       </div>
