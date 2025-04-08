@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import React from "react";
 import Videos from "../components/Videos";
 import Herosection from "../components/Herosection";
@@ -9,14 +10,18 @@ import NewsletterSection from "../components/NewsletterSection";
 
 const Home: React.FC = () => {
   return (
-    <div className="bg-background text-text-dark min-h-screen mx-auto w-full sm:w-4/5 p-4">
-      <Herosection />
-      <Videos />
-      <AboutSection />
-      <EnrollSection />
-      <InfoSection />
-      <TestimonialSection />
-      <NewsletterSection />
+    // Full-width outer wrapper with forced horizontal overflow hidden
+    <div className="bg-background text-text-dark min-h-screen overflow-x-hidden">
+      {/* Centered inner container */}
+      <div className="mx-auto w-full sm:w-4/5 p-4">
+        <Herosection />
+        <Videos />
+        <AboutSection />
+        <EnrollSection />
+        <InfoSection />
+        <TestimonialSection />
+        <NewsletterSection />
+      </div>
     </div>
   );
 };

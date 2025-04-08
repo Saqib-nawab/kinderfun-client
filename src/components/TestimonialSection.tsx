@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faQuoteLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Dummy testimonials data
 const TESTIMONIALS = [
@@ -25,11 +29,15 @@ const TestimonialSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? TESTIMONIALS.length - 1 : prev - 1));
+    setCurrentIndex((prev) =>
+      prev === 0 ? TESTIMONIALS.length - 1 : prev - 1
+    );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === TESTIMONIALS.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === TESTIMONIALS.length - 1 ? 0 : prev + 1
+    );
   };
 
   const currentTestimonial = TESTIMONIALS[currentIndex];

@@ -35,7 +35,6 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    // Remove the w-4/5 mx-auto here
     <div className="relative">
       <nav className="bg-primary shadow-md rounded-4xl">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -139,7 +138,7 @@ const Navbar: React.FC = () => {
               <li>
                 <button
                   onClick={toggleMobileBlogDropdown}
-                  className="flex w-full items-center justify-between text-white text-lg px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary focus:outline-none"
+                  className="flex w-full items-center justify-between text-dark text-lg px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary focus:outline-none"
                 >
                   Blog <ChevronDown size={16} />
                 </button>
@@ -162,7 +161,7 @@ const Navbar: React.FC = () => {
                     <li>
                       <Link
                         to="/blog"
-                        className="block text-white text-base px-4 py-2 rounded-md font-semibold transition hover:bg-gray-light hover:text-white"
+                        className="block text-dark text-base px-4 py-2 rounded-md font-semibold transition hover:bg-gray-light hover:text-dark"
                         onClick={() => {
                           setIsOpen(false);
                           setMobileBlogDropdownOpen(false);
