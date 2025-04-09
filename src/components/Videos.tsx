@@ -50,9 +50,6 @@ const Videos: React.FC = () => {
           ></iframe>
         </div>
       </div>
-
-      {/* Separation Line */}
-      <hr className="border-secondary mb-6" />
     </div>
   );
 };

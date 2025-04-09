@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
   const subscribeUrl = `https://www.youtube.com/channel/${channelId}?sub_confirmation=1`;
 
   return (
-    <footer className="w-4/5 mx-auto bg-primary text-white py-10 my-4 rounded-3xl shadow-md">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-primary text-white py-10 my-4 shadow-md">
+      <div className="px-10 mx-auto w-full max-w-screen-xl">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Left: Logo & About */}
