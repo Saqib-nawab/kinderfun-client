@@ -15,9 +15,10 @@ import blogsData from "./data/blogs.json";
 
 const App: React.FC = () => {
   return (
-    <div className="container mx-auto mt-4 relative flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col justify-between">
+      {" "}
+      {/* Ensures the entire page layout is structured properly */}
       <Navbar />
-
       {/* Main content area grows to fill vertical space */}
       <main className="flex-grow mt-4">
         <Routes>
@@ -53,7 +54,6 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-
       <Footer />
     </div>
   );

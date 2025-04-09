@@ -10,10 +10,8 @@ import NewsletterSection from "../components/NewsletterSection";
 
 const Home: React.FC = () => {
   return (
-    // Full-width outer wrapper with forced horizontal overflow hidden
-    <div className="bg-background text-text-dark min-h-screen overflow-x-hidden">
-      {/* Centered inner container */}
-      <div className="mx-auto w-full sm:w-4/5 p-4">
+    <div className="bg-background text-text-dark min-h-screen overflow-x-hidden flex justify-center items-center">
+      <div className="mx-auto w-full sm:w-4/5 lg:w-3/4 xl:w-2/3 p-4">
         <Herosection />
         <Videos />
         <AboutSection />

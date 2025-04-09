@@ -5,9 +5,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../assets/logo.jpg";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
-  const [mobileBlogDropdownOpen, setMobileBlogDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu toggle
+  const [blogDropdownOpen, setBlogDropdownOpen] = useState(false); // Blog dropdown for desktop
+  const [mobileBlogDropdownOpen, setMobileBlogDropdownOpen] = useState(false); // Blog dropdown for mobile
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -36,8 +36,8 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="relative">
-      <nav className="bg-primary shadow-md rounded-4xl">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <nav className="bg-primary shadow-md">
+        <div className="container mx-auto px-10 py-3 flex justify-between items-center w-full max-w-screen-xl">
           {/* Logo */}
           <Link
             to="/"
