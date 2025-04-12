@@ -15,7 +15,7 @@ import blogsData from "./data/blogs.json";
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between w-screen">
       {" "}
       {/* Ensures the entire page layout is structured properly */}
       <Navbar />
