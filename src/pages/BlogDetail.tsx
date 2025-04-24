@@ -18,6 +18,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ blogs }) => {
   const { blogId } = useParams<{ blogId: string }>();
   const blog = blogs.find((b) => b.id === blogId);
 
+  // If the blog data is not available (null or undefined), show a message to the user. 
   if (!blog) {
     return <div className="text-center mt-8">Blog not found.</div>;
   }

@@ -1,5 +1,5 @@
 // src/pages/Rhymes.tsx
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface VideoItem {
   id: { videoId?: string };
@@ -70,10 +70,9 @@ const Rhymes: React.FC = () => {
                   <button
                     onClick={() => setCurrentCategory(cat)}
                     className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
-                      ${
-                        currentCategory === cat
-                          ? "bg-[var(--secondary)] text-white"
-                          : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
+                      ${currentCategory === cat
+                        ? "bg-[var(--secondary)] text-white"
+                        : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
                       }`}
                   >
                     {cat}
