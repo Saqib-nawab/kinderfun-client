@@ -1,23 +1,23 @@
 // src/components/Footer.tsx
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faPhone,
-  faMapMarkerAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
-  faTwitter,
   faLinkedin,
+  faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faMapMarkerAlt,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 //assets
-import image1 from "../assets/gal-2-1-2.jpg";
-import image2 from "../assets/gal-2-2-2.jpg";
+import image1 from "../assets/logo.jpg";
+import image2 from "../assets/logo.jpg";
 
 const Footer: React.FC = () => {
   useEffect(() => {

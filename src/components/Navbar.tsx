@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
+import { ChevronDown, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "../assets/logo.jpg";
 
 const Navbar: React.FC = () => {
@@ -29,6 +29,7 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "Shop", path: "/shop" },
     { name: "Rhymes & Animation", path: "/rhymes" },
     { name: "Educational Activities", path: "/activities" },
     { name: "Contact", path: "/contact" },

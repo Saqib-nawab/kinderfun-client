@@ -1,27 +1,32 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
   faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import parent_review2 from "../assets/bannerImg_tree.jpeg";
+import parent_review3 from "../assets/kid_one.jpg";
+import parent_review from "../assets/parent_review.png";
 // Dummy testimonials data
 const TESTIMONIALS = [
   {
     name: "Vivi Marian",
     text: "They handle all situations professionally and with genuine care. I am absolutely delighted that my child has been there from almost day 1 and he really enjoys going!",
-    image: "https://dummyimage.com/600x400/ccc/000", // Replace with your own image
+    // image: "https://dummyimage.com/600x400/ccc/000", // Replace with your own image
+    image: parent_review,
   },
   {
     name: "John Doe",
     text: "Kinderfun's rhymes and animations are a lifesaver! My daughter can’t get enough of the songs, and she’s learning so many new words every day.",
-    image: "https://dummyimage.com/600x400/eee/000",
+    // image: "https://dummyimage.com/600x400/eee/000",
+    image: parent_review2,
   },
   {
     name: "Sara Lee",
     text: "The team at Kinderfun is so caring. My son loves their cartoon stories. It's fun and educational, and I love watching him sing along!",
-    image: "https://dummyimage.com/600x400/aaa/000",
+    // image: "https://dummyimage.com/600x400/aaa/000",
+    image: parent_review3,
   },
 ];
 

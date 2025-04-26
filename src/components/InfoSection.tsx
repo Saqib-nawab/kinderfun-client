@@ -1,17 +1,18 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import sidebar_image from "../assets/sidebar_image.png";
 
 const InfoSection: React.FC = () => {
   return (
     <section className="bg-background text-text-dark py-12 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-[16px]">
         {/* Left Column: Text Content */}
         <div>
           <h2 className="text-4xl font-bold mb-4 text-primary">
             Your Child's Best Start In Life
           </h2>
-          <p className="text-lg text-gray-dark mb-6">
+          <p className=" text-gray-dark mb-6 ">
             We are constantly expanding the range of 2D animations and rhymes
             offered, engaging children of all ages. Our goal is to carefully
             educate and develop them in a fun way. We strive to turn the
@@ -60,9 +61,9 @@ const InfoSection: React.FC = () => {
           <div className="hidden lg:block absolute bg-light-orange w-64 h-64 rounded-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
           <img
-            src="https://dummyimage.com/600x400/eee/000"
+            src={sidebar_image}
+            className="object-cover w-full h-[250px] rounded-lg shadow"
             alt="Child learning with cartoons"
-            className="object-cover w-full rounded-lg shadow"
           />
         </div>
       </div>

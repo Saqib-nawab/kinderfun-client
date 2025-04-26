@@ -1,5 +1,8 @@
-// src/pages/Rhymes.tsx
+
+
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import RingLoader from "../components/RingLoader";
 
 interface VideoItem {
   id: { videoId?: string };
@@ -33,6 +36,7 @@ const Rhymes: React.FC = () => {
           ? `${baseUrl}&pageToken=${nextPageToken}`
           : baseUrl;
       const response = await fetch(url);
+      console.log(response)
       if (!response.ok) throw new Error("Failed to fetch videos");
       const data = await response.json();
 
@@ -69,7 +73,7 @@ const Rhymes: React.FC = () => {
                 <li key={cat}>
                   <button
                     onClick={() => setCurrentCategory(cat)}
-                    className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-white
+                    className={`w-full text-left px-4 py-3 rounded-lg shadow-md transition text-dark
                       ${currentCategory === cat
                         ? "bg-[var(--secondary)] text-white"
                         : "bg-[var(--gray-light)] text-black hover:bg-[var(--light-orange)] hover:text-black"
@@ -80,11 +84,38 @@ const Rhymes: React.FC = () => {
                 </li>
               ))}
             </ul>
+            {/* adding banner image  */}
+
+            <div className="sticky hidden lg:block  top-10 max-w-sm mx-auto bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 mt-4 mb-4 ">
+              <img
+                className="w-full h-30 object-cover"
+                src="https://media.istockphoto.com/id/1353379172/photo/cute-little-african-american-girl-looking-at-camera.jpg?s=612x612&w=0&k=20&c=RCOYytwS2nMGfEb80oyeiCcIiqMQu6wnTluAaxMBye4="
+                alt="Shop Products"
+              />
+              <div className="p-6 flex flex-col items-center">
+                <h2 className="text-2xl font-bold text-primary mb-4 text-center">
+                  Exciting Products Coming Soon!
+                </h2>
+                <p className="text-gray-600 mb-6 text-center">
+                  Get ready for adorable toys, rhymes, and fun learning essentials!
+                </p>
+                <Link to="/shop">
+                  <button className="px-6 py-3 bg-primary text-black text-lg font-semibold rounded-full hover:bg-secondary transition-all">
+                    Shop Now
+                  </button>
+                </Link>
+              </div>
+            </div>
+
           </aside>
 
           {/* Video Grid */}
           <section className="lg:col-span-3">
-            {loading && <p>Loading videos...</p>}
+            {loading && (
+              <div className="flex justify-center items-center h-full">
+                <RingLoader size="w-24 h-24" color="border-blue-500" />
+              </div>
+            )}
             {error && <p>Error: {error}</p>}
 
             <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
