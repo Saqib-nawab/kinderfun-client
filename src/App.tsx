@@ -12,6 +12,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 
 import blogsData from "./data/blogs.json";
+import Shop from "./pages/Shop";
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rhymes" element={<Rhymes />} />
           <Route path="/activities" element={<Activities />} />
+          <Route path="/shop" element={<Shop />} /> 
           <Route
             path="/blog"
             element={

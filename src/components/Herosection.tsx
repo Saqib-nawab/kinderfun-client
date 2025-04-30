@@ -1,4 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+// Import your images from the assets folder
+import image2 from "../assets/bannerImg_five.webp";
+import image1 from "../assets/bannerImg_four.jpg"; // Adjust the path as per your file structure
+import image3 from "../assets/bannerImg_six.webp";
 
 const slideContent = (
   <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
@@ -41,7 +46,7 @@ const slideContent = (
     {/* Image Content */}
     <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
       <img
-        // src="https://dummyimage.com/1920x1080/ccc/fff"
+        // Optionally, you can add a placeholder image here
         className="object-cover"
       />
     </div>
@@ -49,8 +54,8 @@ const slideContent = (
 );
 
 const Herosection: React.FC = () => {
-  // Create an array representing three slides
-  const slides = [1, 2, 3];
+  // Array representing three slides with image paths
+  const slides = [image1, image2, image3];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Automatically change slides every 5 seconds
@@ -68,13 +73,15 @@ const Herosection: React.FC = () => {
         className="flex transition-transform duration-700"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
-        {slides.map((_, index) => (
+        {slides.map((image, index) => (
           <div
             key={index}
             className="min-w-full bg-cover bg-center"
             style={{
-              backgroundImage:
-                "url('https://dummyimage.com/1920x1080/ccc/fff')",
+              backgroundImage: `url(${image})`, // Set the image as background
+              backgroundSize: "cover", // Ensure the image fully covers the container
+              backgroundPosition: "center", // Center the image to keep it well-positioned
+              backgroundRepeat: "no-repeat", // Prevent image from repeating
             }}
           >
             {slideContent}

@@ -1,7 +1,7 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import news_banner from "../assets/news_banner.png";
 const NewsletterSection: React.FC = () => {
   return (
     <section className="bg-background text-text-dark py-12 px-4">
@@ -70,9 +70,9 @@ const NewsletterSection: React.FC = () => {
       {/* Illustration */}
       <div className="mt-8 flex justify-center">
         <img
-          src="https://dummyimage.com/600x200/eee/000"
+          src={news_banner}
           alt="Kids illustration"
-          className="w-full max-w-2xl"
+          className="w-full max-w-2xl border-4 border-blue-200 rounded-xl transition-transform transform hover:shadow-2xl"
         />
       </div>
     </section>

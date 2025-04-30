@@ -1,4 +1,9 @@
 import React from "react";
+import image_p_2 from "../assets/banner.jpg";
+import image_p_1 from "../assets/image_p_1.png";
+import kid_one from "../assets/kid_one.jpg";
+import kid_two from "../assets/kid_two.jpg";
+
 
 const AboutSection: React.FC = () => {
   return (
@@ -7,22 +12,23 @@ const AboutSection: React.FC = () => {
         {/* Left Column: 2x2 Image Grid */}
         <div className="grid grid-cols-2 grid-rows-2 gap-4">
           <img
-            src="https://dummyimage.com/300x300/eee/000"
+            src={image_p_1 }
             alt="Kid Activity 1"
             className="object-cover w-full h-full rounded-lg shadow"
           />
           <img
-            src="https://dummyimage.com/300x300/ccc/000"
+            src={image_p_2}
             alt="Kid Activity 2"
             className="object-cover w-full h-full rounded-lg shadow"
           />
           <img
-            src="https://dummyimage.com/300x300/ddd/000"
+            // src={image_p_3}
+            src={kid_one}
             alt="Kid Activity 3"
             className="object-cover w-full h-full rounded-lg shadow"
           />
           <img
-            src="https://dummyimage.com/300x300/999/fff"
+            src={kid_two}
             alt="Kid Activity 4"
             className="object-cover w-full h-full rounded-lg shadow"
           />
