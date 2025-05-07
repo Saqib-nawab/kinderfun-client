@@ -4,7 +4,6 @@ import image_p_1 from "../assets/image_p_1.png";
 import kid_one from "../assets/kid_one.jpg";
 import kid_two from "../assets/kid_two.jpg";
 
-
 const AboutSection: React.FC = () => {
   return (
     <section className="bg-background text-text-dark py-12 px-4">
@@ -12,7 +11,7 @@ const AboutSection: React.FC = () => {
         {/* Left Column: 2x2 Image Grid */}
         <div className="grid grid-cols-2 grid-rows-2 gap-4">
           <img
-            src={image_p_1 }
+            src={image_p_1}
             alt="Kid Activity 1"
             className="object-cover w-full h-full rounded-lg shadow"
           />
