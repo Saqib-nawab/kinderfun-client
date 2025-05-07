@@ -19,6 +19,7 @@ import logo from "../assets/logo.jpg";
 import image1 from "../assets/logo.jpg";
 import image2 from "../assets/logo.jpg";
 
+
 const Footer: React.FC = () => {
   useEffect(() => {
     const script = document.createElement("script");
