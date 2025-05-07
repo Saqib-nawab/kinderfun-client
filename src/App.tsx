@@ -1,15 +1,15 @@
 // src/App.tsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Rhymes from "./pages/Rhymes";
+import Navbar from "./components/Navbar";
 import Activities from "./pages/Activities";
 import BlogCategories from "./pages/BlogCategories";
-import CategoryBlogs from "./pages/CategoryBlogs";
 import BlogDetail from "./pages/BlogDetail";
+import CategoryBlogs from "./pages/CategoryBlogs";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Rhymes from "./pages/Rhymes";
 
 import blogsData from "./data/blogs.json";
 import Shop from "./pages/Shop";
@@ -26,7 +26,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rhymes" element={<Rhymes />} />
           <Route path="/activities" element={<Activities />} />
-          <Route path="/shop" element={<Shop />} /> 
+          <Route path="/shop" element={<Shop />} />
           <Route
             path="/blog"
             element={
@@ -56,6 +56,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      {/* <SocialModal /> */}
       <Footer />
     </div>
   );

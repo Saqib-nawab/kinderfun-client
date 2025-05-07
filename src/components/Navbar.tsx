@@ -1,30 +1,46 @@
-// src/components/Navbar.tsx
 import { ChevronDown, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu toggle
-  const [blogDropdownOpen, setBlogDropdownOpen] = useState(false); // Blog dropdown for desktop
-  const [mobileBlogDropdownOpen, setMobileBlogDropdownOpen] = useState(false); // Blog dropdown for mobile
+  const [isOpen, setIsOpen] = useState(false);
+  const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
+  const [mobileBlogDropdownOpen, setMobileBlogDropdownOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleDesktopBlogDropdown = () =>
-    setBlogDropdownOpen(!blogDropdownOpen);
-  const toggleMobileBlogDropdown = () =>
-    setMobileBlogDropdownOpen(!mobileBlogDropdownOpen);
+
+  const toggleDesktopBlogDropdown = () => {
+    setBlogDropdownOpen((prev) => !prev);
+  };
+
+  const toggleMobileBlogDropdown = () => {
+    setMobileBlogDropdownOpen((prev) => !prev);
+  };
 
   const blogCategories = [
     {
       name: "Early Learning & Development",
       slug: "early-learning-development",
+      emoji: "🧠",
     },
-    { name: "Nursery Rhymes & Music", slug: "nursery-rhymes-music" },
-    { name: "Learning Through Play", slug: "learning-through-play" },
-    { name: "ABCs & Numbers", slug: "abcs-numbers" },
-    { name: "Colors & Shapes Exploration", slug: "colors-shapes-exploration" },
+    {
+      name: "Nursery Rhymes & Music",
+      slug: "nursery-rhymes-music",
+      emoji: "🎵",
+    },
+    {
+      name: "Learning Through Play",
+      slug: "learning-through-play",
+      emoji: "🎲",
+    },
+    { name: "ABCs & Numbers", slug: "abcs-numbers", emoji: "🔤" },
+    {
+      name: "Colors & Shapes Exploration",
+      slug: "colors-shapes-exploration",
+      emoji: "🔷",
+    },
   ];
 
   const navLinks = [
@@ -88,14 +104,15 @@ const Navbar: React.FC = () => {
                 Blog <ChevronDown className="ml-1" size={16} />
               </button>
               {blogDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md z-10">
+                <div className="absolute top-full right-0.5 mt-3.5 w-56 bg-white shadow-lg rounded-md z-10">
                   <ul className="py-2">
                     {blogCategories.map((category) => (
                       <li key={category.slug}>
                         <Link
                           to={`/category/${category.slug}`}
-                          className="block px-4 py-2 text-dark hover:bg-gray-100"
+                          className=" px-4 py-2 text-[12px] text-dark hover:bg-gray-100 flex items-center"
                         >
+                          <span className="mr-2">{category.emoji}</span>
                           {category.name}
                         </Link>
                       </li>
@@ -103,9 +120,9 @@ const Navbar: React.FC = () => {
                     <li>
                       <Link
                         to="/blog"
-                        className="block px-4 py-2 text-dark font-semibold hover:bg-gray-100"
+                        className="block px-4 py-2 text-[12px] font-semibold text-dark hover:bg-gray-100"
                       >
-                        More
+                        📰 More
                       </Link>
                     </li>
                   </ul>
@@ -149,13 +166,13 @@ const Navbar: React.FC = () => {
                       <li key={category.slug}>
                         <Link
                           to={`/category/${category.slug}`}
-                          className="block text-dark text-base px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary"
+                          className="block text-dark text-sm px-4 py-2 rounded-md transition hover:bg-gray-light hover:text-primary"
                           onClick={() => {
                             setIsOpen(false);
                             setMobileBlogDropdownOpen(false);
                           }}
                         >
-                          {category.name}
+                          {category.emoji} {category.name}
                         </Link>
                       </li>
                     ))}
@@ -168,7 +185,7 @@ const Navbar: React.FC = () => {
                           setMobileBlogDropdownOpen(false);
                         }}
                       >
-                        More
+                        📰 More
                       </Link>
                     </li>
                   </ul>

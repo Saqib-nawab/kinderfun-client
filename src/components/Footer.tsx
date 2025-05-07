@@ -1,9 +1,11 @@
 // src/components/Footer.tsx
 import {
   faFacebookF,
-  faLinkedin,
+  faInstagram,
+  faPinterestP,
+  faThreads,
+  faTiktok,
   faTwitter,
-  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
@@ -16,8 +18,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 
 //assets
-import image1 from "../assets/logo.jpg";
-import image2 from "../assets/logo.jpg";
+import { default as image1, default as image2 } from "../assets/logo.jpg";
 
 const Footer: React.FC = () => {
   useEffect(() => {
@@ -162,7 +163,7 @@ const Footer: React.FC = () => {
           </p>
 
           {/* Social Media Links */}
-          <div className="flex gap-4 mt-3 md:mt-2">
+          {/* <div className="flex gap-4 mt-3 md:mt-2">
             {[
               { icon: faFacebookF, link: "#" },
               { icon: faTwitter, link: "#" },
@@ -176,6 +177,42 @@ const Footer: React.FC = () => {
               >
                 <FontAwesomeIcon icon={icon} />
               </Link>
+            ))}
+          </div> */}
+
+          <div className="flex gap-4 mt-3 md:mt-2">
+            {[
+              {
+                icon: faInstagram,
+                link: "https://www.instagram.com/kinderfunnuresryrhymes/",
+              },
+              {
+                icon: faFacebookF,
+                link: "https://www.facebook.com/profile.php?id=61575706888022",
+              },
+              {
+                icon: faTiktok,
+                link: "https://www.tiktok.com/@kinderfunnurseryrhymes?lang=en",
+              },
+              {
+                icon: faPinterestP,
+                link: "https://www.pinterest.com/kinderfun0083/",
+              },
+              {
+                icon: faThreads,
+                link: "https://www.threads.com/@kinderfunnuresryrhymes",
+              },
+              { icon: faTwitter, link: "https://x.com/Kinderfun369" },
+            ].map(({ icon, link }, index) => (
+              <a
+                key={index}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex justify-center items-center bg-secondary text-white rounded-full hover:bg-accent transition"
+              >
+                <FontAwesomeIcon icon={icon} />
+              </a>
             ))}
           </div>
         </div>
