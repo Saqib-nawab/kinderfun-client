@@ -13,6 +13,7 @@ const Shop: React.FC = () => {
       <button className="px-8 py-3 bg-[var(--secondary)] text-white rounded-lg text-lg font-semibold hover:bg-[var(--primary)] transition-all">
         Back to Home
       </button>
+
     </div>
   );
 };
