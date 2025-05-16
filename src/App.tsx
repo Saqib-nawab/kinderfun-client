@@ -56,7 +56,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {/* <SocialModal /> */}
+     
       <Footer />
     </div>
   );
